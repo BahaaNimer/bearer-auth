@@ -2,7 +2,7 @@
 
 const express = require('express');
 const bcrypt = require('bcrypt');
-const jwt = require('jsonwebtoken');
+
 
 // Prepare the express app
 const app = express();
@@ -14,7 +14,7 @@ const notFound = require('./error/404.js');
 const basic = require('./auth/middleware/basic.js');
 const bearer = require('./auth/middleware/bearer.js');
 const users = require('./auth/models/users.js');
-const { JsonWebTokenError } = require('jsonwebtoken');
+
 
 // Routes
 app.post('/signup', async (req, res) => {

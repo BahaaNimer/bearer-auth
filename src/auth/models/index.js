@@ -4,7 +4,6 @@ require('dotenv').config();
 const { Sequelize, DataTypes } = require('sequelize');
 const POSTGRES_URI = process.env.NODE_ENV === 'test' ? 'sqlite:memory:' : process.env.DATABASE_URL;
 
-const users = require('./users');
 
 let sequelizeOptions =
   process.env.NODE_ENV === "production"
