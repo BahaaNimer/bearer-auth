@@ -36,6 +36,16 @@ app.post('/signin', basic, async (req, res) => {
   res.status(200).json(req.user);
 });
 
+app.get('/users', bearer, async (req, res) => {
+  try {
+    const records = await users.findAll();
+    res.status(200).json(records);
+  }
+  catch (e) {
+    console.log(e);
+  }
+});
+
 app.get('/secretstuff', bearer, async (req, res) => {
   res.json({
     message: 'You have access to the secret stuff',
@@ -55,3 +65,14 @@ module.exports = {
     });
   },
 };
+
+// async function handleGetUsers(req, res, next) {
+//   try {
+//     const userRecords = await Users.findAll({});
+//     const list = users.map(user => user.username);
+//     res.status(200).json(list);
+//   } catch (e) {
+//     console.error(e);
+//     next(e);
+//   }
+// }
